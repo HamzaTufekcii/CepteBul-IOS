@@ -27,7 +27,10 @@ final class APIClient {
             guard let http = response as? HTTPURLResponse else {
                 throw APIError(code: nil, message: "Invalid response", details: nil)
             }
-            if http.statusCode == 401, !didRefresh, endpoint.path != Endpoint.refresh().path {
+            if http.statusCode == 401,
+               endpoint.requiresAuth,
+               !didRefresh,
+               endpoint.path != Endpoint.refresh().path {
                 try await refreshToken()
                 return try await perform(endpoint: endpoint, body: body, attempt: attempt, didRefresh: true)
             }
