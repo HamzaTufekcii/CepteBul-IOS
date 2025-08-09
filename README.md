@@ -10,6 +10,8 @@
 
 ## Example Usage
 ```swift
+import CepteBulNetworking
+
 let tokenStore = TokenStore()
 let client = APIClient(tokenStore: tokenStore)
 let authService = AuthService(client: client, tokenStore: tokenStore)

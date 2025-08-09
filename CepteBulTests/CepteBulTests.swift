@@ -6,7 +6,7 @@
 //
 
 import Testing
-@testable import CepteBul
+@testable import CepteBulNetworking
 
 struct CepteBulTests {
 

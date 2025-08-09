@@ -2,16 +2,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "CepteBul",
+    name: "CepteBulNetworking",
     platforms: [
         .iOS(.v17)
     ],
     products: [
-        .library(name: "CepteBul", targets: ["CepteBul"])
+        .library(name: "CepteBulNetworking", targets: ["CepteBulNetworking"])
     ],
     targets: [
         .target(
-            name: "CepteBul",
+            name: "CepteBulNetworking",
             path: "CepteBul",
             exclude: [
                 "Assets.xcassets",
@@ -21,8 +21,8 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "CepteBulTests",
-            dependencies: ["CepteBul"],
+            name: "CepteBulNetworkingTests",
+            dependencies: ["CepteBulNetworking"],
             path: "CepteBulTests",
             exclude: ["CepteBulTests.swift"]
         )

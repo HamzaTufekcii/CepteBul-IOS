@@ -2,7 +2,7 @@ import XCTest
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
-@testable import CepteBul
+@testable import CepteBulNetworking
 
 final class APIClientTests: XCTestCase {
     var client: APIClient!
