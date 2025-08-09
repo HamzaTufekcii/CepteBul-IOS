@@ -1,21 +1,15 @@
-//
-//  ContentView.swift
-//  CepteBul
-//
-//  Created by Hamza Tüfekçi on 7.08.2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLoggedIn = false
+    @State private var email = ""
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world sexxxxx!")
+        if isLoggedIn {
+            MainTabView(email: email)
+        } else {
+            LoginView(isLoggedIn: $isLoggedIn, email: $email)
         }
-        .padding()
     }
 }
 

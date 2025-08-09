@@ -17,7 +17,11 @@ let package = Package(
                 "Assets.xcassets",
                 "CepteBulApp.swift",
                 "ContentView.swift",
-                "Features"
+                "Features",
+                "MainTabView.swift",
+                "HomeView.swift",
+                "SearchView.swift",
+                "ProfileView.swift"
             ]
         ),
         .testTarget(
