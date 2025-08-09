@@ -3,15 +3,25 @@ import CepteBulNetworking
 
 struct BusinessListView: View {
     @StateObject var viewModel: BusinessListViewModel
-    
+    private let columns = [GridItem(.flexible()), GridItem(.flexible())]
+
     var body: some View {
-        List(viewModel.businesses, id: \.id) { business in
-            VStack(alignment: .leading) {
-                Text(business.name)
-                Text(business.location)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 16) {
+                ForEach(viewModel.businesses, id: \.id) { business in
+                    Button(action: {
+                        print("Tapped \(business.name)")
+                    }) {
+                        Text(business.name)
+                            .frame(maxWidth: .infinity, minHeight: 80)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.primary)
+                            )
+                    }
+                }
             }
+            .padding()
         }
         .task { await viewModel.load() }
     }
