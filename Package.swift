@@ -11,11 +11,13 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "CepteBulNetworking"
+            name: "CepteBulNetworking",
+            path: "CepteBulNetworking"
         ),
         .testTarget(
             name: "CepteBulNetworkingTests",
-            dependencies: ["CepteBulNetworking"]
+            dependencies: ["CepteBulNetworking"],
+            path: "Tests/CepteBulNetworkingTests"
         )
     ]
 )
