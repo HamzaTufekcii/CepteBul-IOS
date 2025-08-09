@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		BBB1A58E2E45257300E4486C /* CepteBul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CepteBul.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BBB1A59B2E45257300E4486C /* CepteBulTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CepteBulTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+               BBB1A59B2E45257300E4486C /* CepteBulNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CepteBulNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB1A5A52E45257300E4486C /* CepteBulUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CepteBulUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -35,11 +35,11 @@
 			path = CepteBul;
 			sourceTree = "<group>";
 		};
-		BBB1A59E2E45257300E4486C /* CepteBulTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CepteBulTests;
-			sourceTree = "<group>";
-		};
+               BBB1A59E2E45257300E4486C /* CepteBulNetworkingTests */ = {
+                       isa = PBXFileSystemSynchronizedRootGroup;
+                       path = Tests/CepteBulNetworkingTests;
+                       sourceTree = "<group>";
+               };
 		BBB1A5A82E45257300E4486C /* CepteBulUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CepteBulUITests;
@@ -76,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB1A5902E45257300E4486C /* CepteBul */,
-				BBB1A59E2E45257300E4486C /* CepteBulTests */,
+                               BBB1A59E2E45257300E4486C /* CepteBulNetworkingTests */,
 				BBB1A5A82E45257300E4486C /* CepteBulUITests */,
 				BBB1A58F2E45257300E4486C /* Products */,
 			);
@@ -86,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB1A58E2E45257300E4486C /* CepteBul.app */,
-				BBB1A59B2E45257300E4486C /* CepteBulTests.xctest */,
+                               BBB1A59B2E45257300E4486C /* CepteBulNetworkingTests.xctest */,
 				BBB1A5A52E45257300E4486C /* CepteBulUITests.xctest */,
 			);
 			name = Products;
@@ -117,29 +117,29 @@
 			productReference = BBB1A58E2E45257300E4486C /* CepteBul.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BBB1A59A2E45257300E4486C /* CepteBulTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BBB1A5B22E45257300E4486C /* Build configuration list for PBXNativeTarget "CepteBulTests" */;
-			buildPhases = (
-				BBB1A5972E45257300E4486C /* Sources */,
-				BBB1A5982E45257300E4486C /* Frameworks */,
-				BBB1A5992E45257300E4486C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BBB1A59D2E45257300E4486C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				BBB1A59E2E45257300E4486C /* CepteBulTests */,
-			);
-			name = CepteBulTests;
-			packageProductDependencies = (
-			);
-			productName = CepteBulTests;
-			productReference = BBB1A59B2E45257300E4486C /* CepteBulTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
+               BBB1A59A2E45257300E4486C /* CepteBulNetworkingTests */ = {
+                       isa = PBXNativeTarget;
+                       buildConfigurationList = BBB1A5B22E45257300E4486C /* Build configuration list for PBXNativeTarget "CepteBulNetworkingTests" */;
+                       buildPhases = (
+                               BBB1A5972E45257300E4486C /* Sources */,
+                               BBB1A5982E45257300E4486C /* Frameworks */,
+                               BBB1A5992E45257300E4486C /* Resources */,
+                       );
+                       buildRules = (
+                       );
+                       dependencies = (
+                               BBB1A59D2E45257300E4486C /* PBXTargetDependency */,
+                       );
+                       fileSystemSynchronizedGroups = (
+                               BBB1A59E2E45257300E4486C /* CepteBulNetworkingTests */,
+                       );
+                       name = CepteBulNetworkingTests;
+                       packageProductDependencies = (
+                       );
+                       productName = CepteBulNetworkingTests;
+                       productReference = BBB1A59B2E45257300E4486C /* CepteBulNetworkingTests.xctest */;
+                       productType = "com.apple.product-type.bundle.unit-test";
+               };
 		BBB1A5A42E45257300E4486C /* CepteBulUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBB1A5B52E45257300E4486C /* Build configuration list for PBXNativeTarget "CepteBulUITests" */;
@@ -201,7 +201,7 @@
 			projectRoot = "";
 			targets = (
 				BBB1A58D2E45257300E4486C /* CepteBul */,
-				BBB1A59A2E45257300E4486C /* CepteBulTests */,
+                               BBB1A59A2E45257300E4486C /* CepteBulNetworkingTests */,
 				BBB1A5A42E45257300E4486C /* CepteBulUITests */,
 			);
 		};
@@ -451,7 +451,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.ceptebul.CepteBulTests;
+                               PRODUCT_BUNDLE_IDENTIFIER = app.ceptebul.CepteBulNetworkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -469,7 +469,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.ceptebul.CepteBulTests;
+                               PRODUCT_BUNDLE_IDENTIFIER = app.ceptebul.CepteBulNetworkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -531,7 +531,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBB1A5B22E45257300E4486C /* Build configuration list for PBXNativeTarget "CepteBulTests" */ = {
+       BBB1A5B22E45257300E4486C /* Build configuration list for PBXNativeTarget "CepteBulNetworkingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBB1A5B32E45257300E4486C /* Debug */,

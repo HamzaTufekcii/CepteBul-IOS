@@ -3,19 +3,19 @@ import Foundation
 import FoundationNetworking
 #endif
 
-final class APIClient {
+public final class APIClient {
     private let baseURL: URL
     private let session: URLSession
     private let tokenStore: TokenStore
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
-    
-    init(baseURL: URL = URL(string: "http://localhost:8080")!, tokenStore: TokenStore = TokenStore(), session: URLSession = .shared) {
+
+    public init(baseURL: URL = URL(string: "http://localhost:8080")!, tokenStore: TokenStore = TokenStore(), session: URLSession = .shared) {
         self.baseURL = baseURL
         self.tokenStore = tokenStore
         self.session = session
     }
-    
+
     func request<T: Decodable>(_ endpoint: Endpoint, body: (any Encodable)? = nil) async throws -> T {
         try await perform(endpoint: endpoint, body: body, attempt: 0, didRefresh: false)
     }
@@ -85,4 +85,4 @@ final class APIClient {
         let tokens: AuthTokenResponse = try await perform(endpoint: endpoint, body: req, attempt: 0, didRefresh: true)
         await tokenStore.set(tokens: tokens)
     }
-}//FETCH AT OROSPU ÇOCUĞU
+}

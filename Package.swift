@@ -11,20 +11,11 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "CepteBulNetworking",
-            path: "CepteBul",
-            exclude: [
-                "Assets.xcassets",
-                "CepteBulApp.swift",
-                "ContentView.swift",
-                "Features"
-            ]
+            name: "CepteBulNetworking"
         ),
         .testTarget(
             name: "CepteBulNetworkingTests",
-            dependencies: ["CepteBulNetworking"],
-            path: "CepteBulTests",
-            exclude: ["CepteBulTests.swift"]
+            dependencies: ["CepteBulNetworking"]
         )
     ]
 )
