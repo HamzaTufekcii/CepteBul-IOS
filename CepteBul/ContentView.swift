@@ -10,23 +10,29 @@ struct ContentView: View {
         NavigationStack {
             VStack(spacing: 16) {
                 Spacer()
+
                 if showEmailError {
-                    Text("hatalı mail girdiniz!")
+                    Text("Hatalı mail girdiniz!")
                         .foregroundColor(.red)
                         .font(.caption)
                         .transition(.move(edge: .top))
                 }
+
                 TextField("Mail", text: $email)
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .disableAutocorrection(true)
+                    .textFieldStyle(.roundedBorder)
+
                 SecureField("Şifre", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button("Giriş yap") {
-                    handleLogin()
-                }
+                    .textFieldStyle(.roundedBorder)
+
+                Button("Giriş yap", action: handleLogin)
+                    .buttonStyle(.borderedProminent)
+
                 NavigationLink("", destination: HomeView(), isActive: $isLoggedIn)
                     .hidden()
+
                 Spacer()
             }
             .padding()
@@ -36,16 +42,10 @@ struct ContentView: View {
     private func handleLogin() {
         if isValidEmail(email) && password.count >= 6 {
             isLoggedIn = true
-        } else {
-            if !isValidEmail(email) {
-                withAnimation {
-                    showEmailError = true
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    withAnimation {
-                        showEmailError = false
-                    }
-                }
+        } else if !isValidEmail(email) {
+            withAnimation { showEmailError = true }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                withAnimation { showEmailError = false }
             }
         }
     }
@@ -56,6 +56,4 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}
+#Preview { ContentView() }
