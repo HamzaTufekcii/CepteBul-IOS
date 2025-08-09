@@ -11,8 +11,14 @@ struct LoginView: View {
     @State private var isLoggedIn = false
 
     // MARK: - Dependencies
-    private let tokenStore = TokenStore()
-    private lazy var authService = AuthService(client: APIClient(), tokenStore: tokenStore)
+    private let tokenStore: TokenStore
+    private let authService: AuthService
+
+    init() {
+        let tokenStore = TokenStore()
+        self.tokenStore = tokenStore
+        self.authService = AuthService(client: APIClient(), tokenStore: tokenStore)
+    }
 
     var body: some View {
         VStack {
