@@ -8,16 +8,16 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var error: String?
-    @State private var isLoggedIn = false
+    @Binding var isLoggedIn: Bool
 
     // MARK: - Dependencies
     private let tokenStore: TokenStore
     private let authService: AuthService
 
-    init() {
-        let tokenStore = TokenStore()
+    init(isLoggedIn: Binding<Bool>, tokenStore: TokenStore) {
+        self._isLoggedIn = isLoggedIn
         self.tokenStore = tokenStore
-        self.authService = AuthService(client: APIClient(), tokenStore: tokenStore)
+        self.authService = AuthService(client: APIClient(tokenStore: tokenStore), tokenStore: tokenStore)
     }
 
     var body: some View {
@@ -33,11 +33,6 @@ struct LoginView: View {
 
             Button("Giriş Yap") {
                 Task { await login() }
-            }
-
-            if isLoggedIn {
-                Text("Başarıyla giriş yapıldı")
-                    .foregroundColor(.green)
             }
         }
         .padding()
@@ -62,6 +57,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(isLoggedIn: .constant(false), tokenStore: TokenStore())
 }
 
