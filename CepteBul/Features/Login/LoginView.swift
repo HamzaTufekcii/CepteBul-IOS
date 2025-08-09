@@ -1,4 +1,5 @@
 import SwiftUI
+import CepteBulNetworking
 
 /// A simple login screen that authenticates the user against the backend.
 /// On success the returned tokens are persisted using `TokenStore` and the

@@ -1,13 +1,13 @@
 import Foundation
 
-final class BusinessService {
+public final class BusinessService {
     private let client: APIClient
-    
-    init(client: APIClient) {
+
+    public init(client: APIClient) {
         self.client = client
     }
-    
-    func listBusinesses() async throws -> [Business] {
+
+    public func listBusinesses() async throws -> [Business] {
         try await client.request(.listBusinesses(), body: nil)
     }
 }
